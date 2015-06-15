@@ -1,0 +1,19 @@
+[Unit]
+Description=NodeJS app for %I
+Wants=network.target
+
+[Service]
+User=grimlock
+Group=grimlock
+#Type=forking
+EnvironmentFile=/etc/nodejs.d/nodejs.%I
+SyslogIdentifier=nodejs-%i
+StandardOutput=syslog
+
+PIDFile=/run/nodejs-%I.pid
+ExecStart=/usr/bin/node ${APP_PATH}
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
