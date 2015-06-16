@@ -5,7 +5,7 @@ Wants=network.target
 [Service]
 User=grimlock
 Group=grimlock
-#Type=forking
+Type=forking
 EnvironmentFile=/etc/nodejs.d/nodejs.%I
 SyslogIdentifier=nodejs-%i
 StandardOutput=syslog
